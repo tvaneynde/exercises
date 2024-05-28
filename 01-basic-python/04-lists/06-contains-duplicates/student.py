@@ -1,2 +1,3 @@
-def contains_duplicates(elements):
-    return len(elements) != len(set(elements))
+def contains_duplicates(xs):
+    noDupes = sorted(list(set(xs)))
+    return noDupes != sorted(xs)

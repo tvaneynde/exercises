@@ -1,3 +1,6 @@
+from student import Archer
+
+
 class Human:
     def __init__(self, name):
         self.__name = name
@@ -15,12 +18,16 @@ class Archer(Human):
         return self.__num_arrows
 
     def use_arrows(self, num):
-        pass
+        self.__num_arrows -= num
+        if self.__num_arrows < 0:
+            raise ValueError("Not enough arrows")
 
 
 class Crossbowman(Archer):
     def __init__(self, name, num_arrows):
-        pass
+        super().__init__(name, num_arrows)
 
     def triple_shot(self, target):
-        pass
+        self.use_arrows(3)
+        # * Still get an error here
+        return f"{target.get_name()} was shot by 3 crossbow bolts"
